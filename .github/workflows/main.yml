@@ -35,6 +35,8 @@ jobs:
         mysql database: 'boilerplatedb' 
         mysql user: 'yohwan' 
         mysql password: ${{ secrets.DatabasePassword }}
+    - name: start mySql
+      run: service mysql start
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
     - name: Build with Gradle
