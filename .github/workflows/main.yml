@@ -28,15 +28,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - uses: mirromutth/mysql-action@v1.1
+    - uses: samin/mysql-action@v1
       with:
         character set server: 'utf8'
         collation server: 'utf8_general_ci' 
         mysql database: 'boilerplatedb' 
         mysql user: 'yohwan' 
         mysql password: ${{ secrets.DatabasePassword }}
-    - name: start mySql
-      run: mysql -u yohwan -p 1324
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
     - name: Build with Gradle
