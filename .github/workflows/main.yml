@@ -36,6 +36,8 @@ jobs:
         mysql database: 'boilerplatedb' # Optional, default value is "test". The specified database which will be create
         mysql user: 'yohwan' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
         mysql password: ${{ secrets.DatabasePassword }} # Required if "mysql user" exists. The password for the "mysql user"
+    - name: check mySql
+      run: ps -ef | grep mysql
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
     - name: Build with Gradle
